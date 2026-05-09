@@ -1,69 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css" />
-    <link
-    href="https://fonts.googleapis.com/css2family=inter&display=swap"
-    rel="stylesheet"
-    />
-    <title>PodcatApp</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PodcastApp</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="module" src="./src/index.js" defer></script>
 </head>
-
 <body>
- <header class="app-header">
-    <h1>Podcast App</h1>
- </header> 
+  <header class="app-header">
+    <div class="brand" aria-label="Podcast App home">
+      <span class="brand-icon">◉</span>
+      <h1>PodcastApp</h1>
+    </div>
+    <div class="header-actions">
+      <button class="icon-button" aria-label="Search podcasts">⌕</button>
+      <div class="avatar" aria-label="User profile">☻</div>
+    </div>
+  </header>
 
- <main id="podcastGrod" class="podcast-grid">
-    <div class="podcast-card">
-        <img src="podcast1.jpg" alt="Podcast 1" class="podcast-image" />
-        <h2 class="podcast-title">Podcast Title 1</h2>
-        <p class="podcast-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    <div class="podcast-card">
-        <img src="podcast2.jpg" alt="Podcast 2" class="podcast-image" />
-        <h2 class="podcast-title">Podcast Title 2</h2>
-        <p class="podcast-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    <div class="podcast-card">
-        <img src="podcast3.jpg" alt="Podcast 3" class="podcast-image" />
-        <h2 class="podcast-title">Podcast Title 3</h2>
-        <p class="podcast-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
-    /* Add more podcast cards as needed */
+  <main class="container">
+    <section class="filters" aria-label="Podcast filters">
+      <strong>Filter by:</strong>
+      <select id="genre-filter" aria-label="Filter by genre"></select>
+      <select id="sort-filter" aria-label="Sort podcasts">
+        <option value="recent">Recently Updated</option>
+        <option value="popular">Most Popular</option>
+        <option value="newest">Newest</option>
+      </select>
+    </section>
 
- </main>
- <!-- modal -->
-  <div id="modal" class="modal hidden">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h2>Podcast Title</h2>
-        <button id="closeModal" class="close-button">&times;</button>
-    </div>
-  </div>
-  <div class="banner">
-    <img id="modalimage" class="modal-img" src="" alt="Podcast Image" />
-    <div class="info-section">
-        <h3 id="modalTitle">podcast title</h3>
-        <h3 id="modalAuthor">podcast author</h3>
-        <h3>Description</h3>
-        <p id="modalDescr"></p>
-        <h3>Genres</h3>
-        <div id="modalGenres" class="tags">
-            <!-- Genre tags will be added here -->
-        </div>
-        <p id="modalUpdated" class="modal-updated-text"></p>
-        </div>
-        </div>
-        <h3>Seasons</h3>
-        <ul id="modalSeasons" class="season-list">
-            <!-- Season list items will be added here -->
-        </ul>
-    </div>
-</div>
+    <section id="podcast-grid" class="podcast-grid" aria-live="polite"></section>
+  </main>
 
-<script type="module" defer src="./src/index.js"></script>   
+  <div id="modal-root"></div>
 </body>
 </html>
